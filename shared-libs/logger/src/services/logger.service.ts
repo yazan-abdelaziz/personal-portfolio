@@ -19,6 +19,9 @@ import config from '../config/log-config';
 
     // always write to the console
     writeToConsole(levelName, message, error, props);
+
+    // log to a file in case logger config are configured to do so
+    // TODO: configure to log to a file or a cloude service
 }
 
 /**
@@ -52,7 +55,7 @@ const writeToConsole = (levelName: string, message?: string, error?: Error, prop
     }
 
     const formatedMessage = getFormatedMessage(levelName, message, error);
-    console.log(`${colorFunction(formatedMessage)}`);
+    console.log(`${colorFunction(formatedMessage)}\n${props}`);
 }
 
 
@@ -64,7 +67,7 @@ const writeToConsole = (levelName: string, message?: string, error?: Error, prop
  * @returns Logged Formated Message
  */
 const getFormatedMessage = (levelName: string, message?: string, error?: Error) => {
-    return `[${levelName.toUpperCase()}][${getFormatedCurrentDate()}]: ${message}\n --- ${error ? `error: ${error.message} - stack: ${error.stack}`: ''}`;
+    return `[${levelName.toUpperCase()}][${getFormatedCurrentDate()}]: ${message} --- \n${error ? `error: ${error.message} - stack: ${error.stack}`: ''}`;
 }
 
 /**
