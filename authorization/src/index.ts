@@ -4,6 +4,7 @@ import { router } from './routes';
 import swaggerUi from 'swagger-ui-express';
 import { swaggerDocument } from './swagger';
 import swaggerJsDoc from 'swagger-jsdoc';
+import connectToServiceDb from './utils/database connection';
 
 const logi = new logger();
 
@@ -18,4 +19,9 @@ app.use('/authorization', router);
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => logi.info(`start lestining for port ${PORT}`, PORT));
+app.listen(PORT, async () => {
+    logi.info(`start lestining for port ${PORT}`, PORT);
+
+    // connect to the db
+    await connectToServiceDb();
+});
