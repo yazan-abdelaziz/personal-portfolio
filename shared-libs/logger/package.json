@@ -1,6 +1,6 @@
 {
   "name": "yabd-personal-protfolio-logger",
-  "version": "1.0.0-test.6",
+  "version": "1.0.0-test.7",
   "description": "Logger package",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

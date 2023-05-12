@@ -55,7 +55,7 @@ const writeToConsole = (levelName: string, message?: string, error?: Error, prop
     }
 
     const formatedMessage = getFormatedMessage(levelName, message, error);
-    console.log(`${colorFunction(formatedMessage)}\n${props}`);
+    console.log(`${colorFunction(formatedMessage)}\n${props ?? ''}`);
 }
 
 
